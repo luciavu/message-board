@@ -3,7 +3,6 @@ const CustomNotFoundError = require('../../errors/CustomNotFoundError.js');
 
 async function getMessageById(req, res) {
   const { messageId } = req.params;
-  console.log('req param', messageId);
   const message = await db.getMessageById(messageId);
 
   if (!message) {

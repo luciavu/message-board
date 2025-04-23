@@ -3,19 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title><%=title%></title>
   </head>
   <body>
-    <a href="/new">Add message</a>
+    <%-include('header')%>
+    <a class="add-message" href="/new">Add message</a>
     <div class="message-board">
       <%messages.forEach((message) => {%>
+
       <div class="message">
-        <a href="/message/<%=message.id%>">See details</a>
-        <h2><%=message.user%></h2>
-        <h2><%=message.added%></h2>
-        <h1><%=message.text%></h1>
-        <%})%>
+        <div>
+          <div class="info">
+            <h2 class="<%=message.color%>"><%=message.user%></h2>
+            <h2 class="date"><%=message.added.toLocaleDateString()%></h2>
+          </div>
+          <p><%=message.text%></p>
+        </div>
+        <a class="see-details" href="/message/<%=message.id%>">See details</a>
       </div>
+
+      <%})%>
     </div>
   </body>
 </html>

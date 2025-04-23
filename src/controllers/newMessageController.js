@@ -1,5 +1,4 @@
 const { randomUUID } = require('crypto');
-
 const { messages } = require('../../db.js');
 module.exports = {
   get: (req, res) => {
