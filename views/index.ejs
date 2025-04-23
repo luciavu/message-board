@@ -10,6 +10,7 @@
     <div class="message-board">
       <%messages.forEach((message) => {%>
       <div class="message">
+        <a href="/message/<%=message.id%>">See details</a>
         <h2><%=message.user%></h2>
         <h2><%=message.added%></h2>
         <h1><%=message.text%></h1>
