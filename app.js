@@ -1,16 +1,25 @@
 const path = require('path');
 const express = require('express');
-const app = express();
 const indexRouter = require('./routes/indexRouter');
 const newMessageRouter = require('./routes/newMessageRouter');
+require('dotenv').config();
 
-// Setup
+const app = express();
+
+// Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // parse form
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Set view
+// View engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// Set routes
+// Routes
 app.use('/new', newMessageRouter);
 app.use('/', indexRouter);
+
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`My first Express app - listening on port ${PORT}!`);
+});
