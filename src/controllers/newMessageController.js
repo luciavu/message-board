@@ -12,7 +12,6 @@ module.exports = {
       user: name || 'Anonymous',
       added: new Date(),
     });
-    console.log(messages);
     res.redirect('/');
   },
 };

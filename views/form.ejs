@@ -12,17 +12,26 @@
 </head>
 <%-include('header')%>
 <form method="POST" action="/new">
+  <h1 class="form-title">Add a message:</h1>
   <label for="name">Name</label>
-  <input type="text" name="name" id="name" maxlength="10" aria-required="false" />
-  <label for="message">Message</label>
   <input
-    type="textarea"
+    type="text"
+    name="name"
+    id="name"
+    maxlength="10"
+    aria-required="false"
+    placeholder="Anonymous"
+  />
+  <label for="message">Message</label>
+
+  <textarea
     name="message"
     id="message"
     maxlength="50"
-    rows="2"
+    rows="4"
     required
     aria-required="true"
-  />
+  ></textarea>
+
   <button>Post</button>
 </form>

@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%=title%></title>
-  </head>
-  <body>
-    <div class="details">
-      <a href="/">Back</a>
-      <h2><%=message.user%></h2>
-      <h2><%=message.added%></h2>
-      <h1><%=message.text%></h1>
-    </div>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet"
+  />
+  <title><%=title%></title>
+</head>
+<body>
+  <div class="details">
+    <a class="back" href="/">Back</a>
+    <h1>Message Details</h1>
+    <p><strong>User:&nbsp</strong><%=message.user%></p>
+    <p><strong>Date posted:&nbsp</strong><%=message.added%></p>
+    <p class="message-detailed"><strong>Message:&nbsp</strong><%=message.text%></p>
+  </div>
+</body>
