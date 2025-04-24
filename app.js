@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 const indexRouter = require('./routes/indexRouter');
 const newMessageRouter = require('./routes/newMessageRouter');
 const messageRouter = require('./routes/messageRouter');
@@ -16,6 +17,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // serve static assets
 // View engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
 
 // Routes
 app.use('/new', newMessageRouter);
@@ -29,7 +31,7 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   console.error(err);
-  res.status(err.statusCode || 500).render('error', { error: err });
+  res.status(err.statusCode || 500).render('error', { error: err, title: 'Error' });
 });
 
 const PORT = process.env.PORT || 8000;

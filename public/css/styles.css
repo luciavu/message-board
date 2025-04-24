@@ -14,6 +14,7 @@
     justify-self: center;
   }
 }
+
 h1,
 h2 {
   margin: 0;
@@ -23,16 +24,23 @@ h1 {
   font-size: 3rem;
   text-align: center;
   margin: 1.5rem 0;
+  width: fit-content;
 }
 
 a {
   color: var(--main);
   text-decoration: none;
+  width: fit-content;
 }
 
 body {
   color: var(--main);
   margin: 2.5rem;
+  overflow-y: scroll;
+}
+
+footer {
+  height: 20vh;
 }
 
 .github {
@@ -48,7 +56,9 @@ body {
 }
 
 .title {
-  margin: 1.5rem 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 .add-message {
@@ -90,9 +100,13 @@ form {
   font-size: 1.2rem;
 }
 
-.message a {
+.see-details {
   display: flex;
+  text-align: end;
+  color: var(--main-light);
+  opacity: 0.8;
   justify-content: flex-end;
+  text-decoration: underline;
 }
 
 .message .info {
@@ -106,11 +120,6 @@ form {
   font-size: 0.8rem;
   font-weight: 400;
   opacity: 0.6;
-}
-
-.see-details {
-  color: var(--main-light);
-  text-decoration: underline;
 }
 
 .form-title {
@@ -141,6 +150,7 @@ form button {
   color: white;
   border: none;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 
 label {
@@ -172,7 +182,6 @@ label {
 .error {
   display: flex;
   flex-direction: column;
-  height: 80vh;
   justify-content: center;
   align-items: center;
 }
