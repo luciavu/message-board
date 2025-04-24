@@ -2,7 +2,7 @@
 
 The Odin Project - NodeJS Course Project (1/8):
 
-A simple message board built using Express.js (NodeJS) and EJS. Users can view existing messages, or post their own messages, which are then displayed on the homepage.
+A simple message board built using Express.js (NodeJS), EJS + CSS, deployed on Render. Users can view existing messages, or post their own messages, which are then displayed on the homepage.
 
 ## Preview
 
