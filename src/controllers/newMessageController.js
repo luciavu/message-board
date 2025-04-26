@@ -1,17 +1,17 @@
-const { randomUUID } = require('crypto');
-const { messages } = require('../../db.js');
+const db = require('../../db/queries');
+const CustomNotFoundError = require('../../errors/CustomNotFoundError.js');
+
 module.exports = {
   get: (req, res) => {
     res.render('form', { title: 'New Message' });
   },
-  post: (req, res) => {
+  post: async (req, res) => {
     const { name, message } = req.body;
-    messages.push({
-      id: randomUUID(),
-      text: message,
-      user: name || 'Anonymous',
-      added: new Date(),
-    });
-    res.redirect('/');
+    try {
+      await db.insertMessage(name || 'Anonymous', message, new Date());
+      res.redirect('/');
+    } catch (err) {
+      throw new CustomNotFoundError('Failed to add message.');
+    }
   },
 };
